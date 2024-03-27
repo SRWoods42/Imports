@@ -1,0 +1,43 @@
+###################################
+#                                 #
+#            DDL SQL              #
+#                                 #
+###################################
+
+
+sql = """
+CREATE TABLE "user" (
+    "userID" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "usrUsername" TEXT,
+    "usrEmail" TEXT,
+    "usrPassword" TEXT,
+    "usrFirstName" TEXT,
+    "usrLastname" TEXT,
+    "usrPhoneNumber" TEXT,
+    "usrDOB" TEXT,
+    "usrIsTeacher" BOOLEAN,
+    "usrTargetGrade" TEXT,
+    "usrCurrentGrade" TEXT,
+    "usrCreated" DATETIME
+);
+
+CREATE TABLE "test" (
+    "testID" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "test_Score" TEXT,
+    "test_Subject" TEXT,
+    "test_DueDate" DATETIME,
+    "test_CompletedDate" DATETIME,
+    "test_IsCompleted" BOOLEAN,
+    "userID" INTEGER,
+    FOREIGN KEY(userID) REFERENCES user(userID)
+);
+
+insert into user (usrUsername, usrEmail, usrPassword, usrFirstName, usrLastname, usrPhoneNumber, usrDOB, usrIsTeacher, usrTargetGrade, usrCurrentGrade, usrCreated) values ('1','1@email.com','4dff4ea340f0a823f15d3f4f01ab62eae0e5da579ccb851f8db9dfe84c58b2b37b89903a740e1ee172da793a6e79d560e5f7f9bd058a12a280433ed6fa46510a','john','doe','07682687257','2010-04-25', 1, NULL, NULL, '2024-02-07 10:42:32');
+insert into user (usrUsername, usrEmail, usrPassword, usrFirstName, usrLastname, usrPhoneNumber, usrDOB, usrIsTeacher, usrTargetGrade, usrCurrentGrade, usrCreated) values ('josh','josh@email.com','4dff4ea340f0a823f15d3f4f01ab62eae0e5da579ccb851f8db9dfe84c58b2b37b89903a740e1ee172da793a6e79d560e5f7f9bd058a12a280433ed6fa46510a','josh','aaa','07789257172','205-08-04', 0, NULL, NULL, '2024-02-07 11:13:12');
+insert into user (usrUsername, usrEmail, usrPassword, usrFirstName, usrLastname, usrPhoneNumber, usrDOB, usrIsTeacher, usrTargetGrade, usrCurrentGrade, usrCreated) values ('mia','mia@email.com','4dff4ea340f0a823f15d3f4f01ab62eae0e5da579ccb851f8db9dfe84c58b2b37b89903a740e1ee172da793a6e79d560e5f7f9bd058a12a280433ed6fa46510a','mia','johnes','07418471938','2006-02-14', 0, NULL, NULL, '2024-02-07 10:14:56');
+
+
+insert into test (test_Score, test_Subject, test_DueDate, test_CompletedDate, test_IsCompleted, userID) values (NULL, 'Maths', '2024-02-20 23:59:59', NULL, 0, 3);
+insert into test (test_Score, test_Subject, test_DueDate, test_CompletedDate, test_IsCompleted, userID) values (NULL, 'English', '2024-02-20 23:59:59', NULL, 0, 3);
+insert into test (test_Score, test_Subject, test_DueDate, test_CompletedDate, test_IsCompleted, userID) values (NULL, 'Science', '2024-02-20 23:59:59', NULL, 0, 3);
+"""
