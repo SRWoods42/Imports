@@ -1,0 +1,6 @@
+def getDate(cal): # used to get the date from the calendar
+    dt = cal.selection_get()
+    parsedDateTime = dt.strftime("%Y-%m-%d 23:59:59")
+    print(dt)
+    global CalendarDate
+    CalendarDate = parsedDateTime
