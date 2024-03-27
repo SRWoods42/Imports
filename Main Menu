@@ -1,0 +1,32 @@
+#
+# MAIN MENU PAGE
+#
+
+# Create a container box for the logo and title
+MainWindow_LogoBox = Box(MainWindow)
+MainWindow.title="GibJohn - MainMenu"
+MainWindow_Logo = Picture(MainWindow_LogoBox, image="ToKaFitnessLogo.png", width=150, height=150)
+MainWindow_Title = Text(MainWindow_LogoBox, "GibJohn", size=18)
+MainWindow_Space = Text(MainWindow_LogoBox, "", size=5)
+
+# Add additional content
+MainWindow_Additional = Box(MainWindow)
+MainWindow_AdditionalText = Text(MainWindow_Additional, "Welcome to GibJohn!", size=14)
+MainWindow_AdditionalText = Text(MainWindow_Additional, "Teachers set tests for students.")
+MainWindow_AdditionalText = Text(MainWindow_Additional, "Students can take set tests.")
+MainWindow_AdditionalText = Text(MainWindow_Additional, "Already a member? Login now to access your account.")
+MainWindow_AdditionalText = Text(MainWindow_Additional, "Not a member? Register now to create an account.")
+MainWindow_Text = Text(MainWindow_Additional, text="", size=7)
+# Create a container box for login and register buttons
+MainWindow_ButtonsBox = Box(MainWindow, layout="grid")
+MainWindow_LoginButton = PushButton(MainWindow_ButtonsBox, text="LOGIN", command=lambda:changeWindow("LoginWindow"), grid=[0, 0])
+MainWindow_LoginButton.bg = "#91E0D5"
+
+MainWindow_Text = Text(MainWindow_ButtonsBox, text="  OR  ", size=14, grid=[1, 0])
+MainWindow_RegisterButton = PushButton(MainWindow_ButtonsBox, text="REGISTER", grid=[2, 0])
+MainWindow_RegisterButton.bg = "#91E0D5"
+
+MainWindow_LoginButton.tk.config(cursor="hand2")
+MainWindow_RegisterButton.tk.config(cursor="hand2")
+
+hidex(MainWindow_LogoBox,MainWindow_Additional,MainWindow_ButtonsBox)
