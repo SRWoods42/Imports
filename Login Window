@@ -1,0 +1,47 @@
+#LOGIN WINDOW
+LoginWindow = Window(MainWindow, title="GibJohn - Login",width=553, height=460)
+LoginWindow.tk.resizable(False, False)
+LoginWindow.tk.iconbitmap('ToKaFitnessLogo.ico')
+
+
+LoginWindow_LogoControl2 = Box(LoginWindow, width=340, height=350, border=False)
+LoginWindow_Logo = Picture(LoginWindow_LogoControl2, image="ToKaFitnessLogo.png", width=150,height=150, align="top")
+
+LoginWindow_Space = Text(LoginWindow_LogoControl2, text="",size="3")
+LoginWindow_Title = Text(LoginWindow_LogoControl2, text="GibJohn",size="20")
+LoginWindow_Title.tk.config(font=("Adobe Gothic Std B", 20, 'bold'))
+
+LoginWindow_Space = Text(LoginWindow_LogoControl2, text="",size="1")
+LoginWindow_Title = Text(LoginWindow_LogoControl2, text="Login to your account",size="16")
+LoginWindow_Space = Text(LoginWindow_LogoControl2, text="",size="4")
+
+LoginWindow_Option612_Box = Box(LoginWindow_LogoControl2,width=180,height=80,border=False,align="left")
+LoginWindow_Option613_Box = Box(LoginWindow_LogoControl2,width=180,height=80,border=False,align="left")
+
+LoginWindow_Title = Text(LoginWindow_Option612_Box, text="Username/Email",size=14)
+LoginWindow_InputField1 = TextBox(LoginWindow_Option612_Box, text="",width=22)
+LoginWindow_Space = Text(LoginWindow_Option612_Box, text="",size=6)
+
+LoginWindow_Title = Text(LoginWindow_Option613_Box, text="Password",size=14)
+LoginWindow_InputField2 = TextBox(LoginWindow_Option613_Box, text="",width=22,hide_text=True)
+LoginWindow_Space = Text(LoginWindow_Option613_Box, text="",size=6)
+
+
+LoginWindow_NeedAccount = Text(LoginWindow_Option612_Box, text="Need an account?", size="11",color="black", font='Helvetica 15 underline',align="left")
+LoginWindow_NeedAccount.when_clicked = lambda:changeWindow("RegisterWindow")
+LoginWindow_NeedAccount.when_mouse_enters = lambda: LoginWindow_NeedAccount.tk.config(font=("Ariel", 11, 'underline'), cursor="hand2")
+LoginWindow_NeedAccount.when_mouse_leaves = lambda: LoginWindow_NeedAccount.tk.config(font=("Ariel", 11))
+
+LoginWindow_ForgotPassword = Text(LoginWindow_Option613_Box, text="Forgot Password?", size="11",color="black", font='Helvetica 15 underline',align="right")
+LoginWindow_ForgotPassword.when_clicked = lambda:changeWindow("ForgotPassword")
+LoginWindow_ForgotPassword.when_mouse_enters = lambda: LoginWindow_ForgotPassword.tk.config(font=("Ariel", 11, 'underline'), cursor="hand2")
+LoginWindow_ForgotPassword.when_mouse_leaves = lambda: LoginWindow_ForgotPassword.tk.config(font=("Ariel", 11))
+
+LoginWindow_LogoControl3 = Box(LoginWindow, width=70, height=40, border=False)
+LoginWindow_LoginButton = PushButton(LoginWindow_LogoControl3, text="Login",command=login)
+LoginWindow_LoginButton.tk.config(font=("Adobe Gothic Std B", 16, 'bold'))
+LoginWindow_LoginButton.tk.config(cursor="hand2")
+LoginWindow_LoginButton.bg = "#39CCB7"
+
+
+LoginWindow.hide()
