@@ -1,0 +1,23 @@
+from guizero import App, Window, TextBox, PushButton, Text, ButtonGroup, ListBox, Picture, Combo, Box, Slider, MenuBar, CheckBox, info, error # guizero for creating the windows and buttons
+import sqlite3 # sqlite3 for creating the database and sql querys                                 
+import os # os for removing files like creating a new database file each time
+import os.path # os.path for for checking if a file exists in the path
+import hashlib # hashlib for hashing the users passwords to store in the database                 
+import sys # sys for importing other required modules
+import re # re for creating regex for checking the users email                                    
+import json # json for coverting the api responses to json to make it easiter to extract data     
+import random # random for creating random strings                                                
+import requests # requests for making api requests                                                
+import matplotlib.pyplot as plt # for plottng graphs                                              
+import time # time for wait and others
+import pandas as pd # pandas for sorting  the data for graphs 
+import pyarrow # for pandas
+import textwrap # for wrapping text to make it fit                                                
+import datetime # datetime for getting dates and times                             
+import html # for converting requests to readable format
+from functools import partial
+import webbrowser # webbrowers for opening a website page
+from datetime import timedelta # timedelta for parsing dates for other use
+from dateutil import parser # parser for checking dates of premium plan
+import tkinter as tk # tkinter for certain features like bold text
+from tkcalendar import DateEntry, Calendar # tkcalendar for creating a calendar widget
