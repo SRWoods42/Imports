@@ -1,0 +1,32 @@
+# DML SQL
+
+#result = searchDB(f"select * from user where {LoginForm_Field1Type} = ? AND usrPassword = ?", UsernameorEmail, Password) # this mitigates sql injection with this query statment
+def searchDB(query, *args): # used to search the database with a query and returns data
+    try:
+        conn = sqlite3.connect(database_file)
+        # Get a cursor pointing to the database
+        cursor = conn.cursor()
+        # execute query
+        cursor.execute(query, args)
+        records = cursor.fetchall()
+        # Close the connection to the database
+        conn.close()
+        return records
+    except Exception as error: # used to catch and raise an error if an error occures
+        raise Exception(f"Oh no, an error has occured with the database [1]: {error}") # raises an error
+
+
+#result = addData("insert into user (usrUsername, usrEmail, usrPassword, usrPhoneNumber, usrFirstName, usrLastName, usrOptions, usrCreateDate) values (?, ?, ?, ?, ?, ?, ?, ?)", Username, Email, Password, 'not set', FirstName, LastName, JsonSettings, datetime.now())
+def addData(query, *args): # used to insert and update data into the database with a query and returns data
+    try:
+        conn = sqlite3.connect(database_file)
+        # Get a cursor pointing to the database
+        cursor = conn.cursor()
+        # execute query
+        cursor.execute(query, args)
+        conn.commit()
+        # Close the connection to the database
+        conn.close()
+        return cursor.lastrowid
+    except Exception as error: # used to catch and raise an error if an error occures
+        raise Exception(f"Oh no, an error has occured with the database [2]: {error}") # raises an error
