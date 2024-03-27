@@ -1,0 +1,16 @@
+# Create the main app window
+MainWindow = App("Ticket Booking - Loading...", width=500, height=400)
+MainWindow.tk.resizable(False, False)
+MainWindow.tk.iconbitmap('ToKaFitnessLogo.ico')
+
+MW_LoadingWindow_Box = Box(MainWindow)# Create a container box for the logo and title
+MW_LoadingWindow_Space = Text(MW_LoadingWindow_Box, "", size=15,height=2)
+MW_LoadingWindow_Logo = Picture(MW_LoadingWindow_Box, image="ToKaFitnessLogo.png", width=220, height=220)
+MW_LoadingWindow_Space = Text(MW_LoadingWindow_Box, "", size=5)
+MW_LoadingWindow_Loadingtext = Text(MW_LoadingWindow_Box, "Loading...", size=18)
+
+# Schedule the loading text updates every 350 milliseconds
+MainWindow.repeat(250, update_loading_text)
+
+# After 500 milliseconds (0.5 seconds), stop the loading animation and show the main window
+MainWindow.after(1500, lambda: changeWindow2("MW_LoadingWindow", "MainWindow"))
